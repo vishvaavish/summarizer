@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 # ───────────────────────────────────────────────
 # Load environment variables
 # ───────────────────────────────────────────────
-load_dotenv()
-ASSEMBLY_KEY = os.getenv("ASSEMBLYAI_API_KEY")
-HUGGING_KEY = os.getenv("HUGGINGFACE_API_KEY")
-HF_MODEL = os.getenv("HF_SUMMARY_MODEL", "sshleifer/distilbart-cnn-12-6")
+import streamlit as st
+ASSEMBLY_KEY = st.secrets["ASSEMBLYAI_API_KEY"]
+HUGGING_KEY = st.secrets["HUGGINGFACE_API_KEY"]
+HF_MODEL = st.secrets.get("HF_SUMMARY_MODEL", "sshleifer/distilbart-cnn-12-6")
 
 # ───────────────────────────────────────────────
 # Streamlit UI setup
